@@ -1,0 +1,36 @@
+package com.controller;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.model.ProductModel;
+import com.service.ProductService;
+
+@Controller
+public class CategoryController {
+	@Autowired
+	private ProductService productservice;
+	
+	@RequestMapping(value="/Headphones")
+	public String head(Map<String, Object> map)
+	{
+		ProductModel productmodelResult=new ProductModel();
+		map.put("productModel",productmodelResult);
+	    map.put("productmodelList", productservice.getAllHeadPhones());
+	  System.out.println(productmodelResult);
+		return "Category";
+	}
+	@RequestMapping(value="/Chargers")
+	public String Crg(Map<String, Object> map)
+	{
+		ProductModel productmodelResult=new ProductModel();
+		map.put("productModel",productmodelResult);
+	    map.put("productmodelList", productservice.getAllChargers());
+	  System.out.println(productmodelResult);
+		return "Category";
+	}
+
+}

@@ -1,0 +1,20 @@
+package com.niit;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class UserDAO {
+	public boolean isValidUser(String name,String password) 
+	{
+		if(name.equals("MADHAN") && password.equals("password@123"))
+		{
+			return true;
+			
+		}else
+		{
+			return false;
+			
+		}
+	}
+
+}
